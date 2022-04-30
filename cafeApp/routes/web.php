@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CafeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//homepage
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('pages.homePage');
+})->name('homePage');
+
+
+//about us page
+Route::get('/about',function(){
+    return view('pages.about');
+})->name('about');
+
+
+//cafe Resorce route
+Route::resource('cafes',CafeController::class);
