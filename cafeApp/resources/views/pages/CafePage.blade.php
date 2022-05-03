@@ -121,7 +121,15 @@
     </div>
     
     <div>
-        امکانات کافه
+        {{-- @for ($i = 0; $i < count($cafe['attributes']); $i++)
+
+            {{$cafe[$i]}}<br>
+            
+        @endfor --}}
+        {{-- {{count($cafe['attributes'])}} --}}
+        @foreach (array_keys($cafe['attributes']) as $attribute)
+            {{$attribute}} : {{$cafe['attributes'][$attribute]}}<br>            
+        @endforeach
     </div>
 
 

@@ -19,5 +19,10 @@ class Cafe extends Model
         'phone_number',
     ];
 
+    public function getAttributesAttribute($value){
+
+        return (array) json_decode($value);
+    }
+
    
 }

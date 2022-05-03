@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
+
 class CafeSeeder extends Seeder
 {
     /**
@@ -16,6 +17,9 @@ class CafeSeeder extends Seeder
     public function run()
     {
         //
+
+        
+
         DB::table('cafes')->insert([
             'name'=>'کافه لمیز',
             'address' => 'اصفهان، خیابان استانداری، روبروی بلوار هشت بهشت، پلاک 50',
@@ -24,6 +28,7 @@ class CafeSeeder extends Seeder
             'provance' => 'esfahan',
             'email_address' => 'lamiz@gmail.com',
             'phone_number' => '03132247982',
+            'attributes' => $this->get_attributes(),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -36,6 +41,8 @@ class CafeSeeder extends Seeder
             'provance' => 'esfahan',
             'email_address' => 'dahdashti@gmail.com',
             'phone_number' => '09134208004',
+            'attributes' => $this->get_attributes(),
+
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -48,9 +55,24 @@ class CafeSeeder extends Seeder
             'provance' => 'esfahan',
             'email_address' => 'radiocafe@gmail.com',
             'phone_number' => '03132245089',
+            'attributes' => $this->get_attributes(),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
+    }
+
+    protected function get_attributes(){ 
+        $attribute_array = ["صبحانه"=>"دارد",
+                            "غذا"=>"دارد",
+                            "جای پارک"=>"پارکینگ اختصاصی",
+                            "مناسب برای قرار دو نفره"=>"بله",
+                            "پریز برق"=>"دارد"] ;
+
+        $attributes_json = json_encode($attribute_array);
+        return $attributes_json;
+
+        // return $attribute_array;
 
     }
 }

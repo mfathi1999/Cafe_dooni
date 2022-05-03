@@ -62,7 +62,8 @@ class CafeController extends Controller
         $cafe = Cafe::where('id',$id)->first();
 
         // return $id;
-        
+        //$cafe['attributes'] = json_decode($cafe['attributes']);
+        //return $cafe['attributes'];
         return view('pages.CafePage',['cafe'=>$cafe]);
     }
 
