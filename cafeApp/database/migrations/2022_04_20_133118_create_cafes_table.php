@@ -19,12 +19,16 @@ class CreateCafesTable extends Migration
             $table->string('address');
             
             // value type related to the google map api
-            $table->string('map_src_google_map',300);
+            $table->string('map_src_google_map',300)->nullable();
 
             $table->string('city');
             $table->string('provance');
             $table->string('email_address')->unique();
             $table->string('phone_number')->unique();
+
+            //Cover Image fields
+            $table->string('coverImage_original_filename')->nullable();
+            $table->string('coverImage_thumbnail_filename')->nullable();
 
             
 
